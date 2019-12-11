@@ -1,0 +1,17 @@
+<%- include("partials/header"); %>
+<div class="container text-center">
+	<div class="jumbotron jumbotron-fluid rounded">
+		<div class="container">
+			<% if (currentUser) { %>
+	    		<h1 class="bg-danger">Whoa, there!</h1>
+				<form class="form-group" action="/delete/<%= currentUser._id %>?_method=DELETE" method="POST">
+					<h2 class="text-danger">Are you sure you want to delete your account?</h2>
+					<h3 class="text-danger">Once you delete your account, there's no getting it back. You will lose all your posts and account data. Make sure you want to do this.</h3>
+					<a href="/posts" class="btn btn-lg btn-outline-secondary">Cancel and Go Back</a>
+					<button class="btn btn-lg btn-outline-danger">Delete My Account</button>
+				</form>
+			<% } %>
+		</div>
+  	</div>
+</div>
+<%- include("partials/footer"); %>

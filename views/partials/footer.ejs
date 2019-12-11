@@ -1,0 +1,31 @@
+	<div id="sticky-footer" class="py-3">
+    &emsp;<small><a href="/aboutus">About Us</a></small>
+    &emsp;<small><a href="/terms">Terms</a></small>
+    &emsp;<small>Designed and Coded by : surhud004 &copy; 2019</small><!-- Build Date : 10th December 2019 --> 
+    &emsp;<small><a href="/feedback">Feedback</a></small>
+  </div>
+	<!-- JQuery -->
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+	<!-- Popper JS -->
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<!-- Bootstrap JS -->
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+	<!-- Emoji JS -->
+	<script src="/lib/js/config.js"></script>
+  	<script src="/lib/js/util.js"></script>
+  	<script src="/lib/js/jquery.emojiarea.js"></script>
+  	<script src="/lib/js/emoji-picker.js"></script>
+  	<script>
+      $(function() {
+        // Initializes and creates emoji set from sprite sheet
+        window.emojiPicker = new EmojiPicker({
+          emojiable_selector: '[data-emojiable=true]',
+          assetsPath: '../../lib/img/',
+          popupButtonClasses: 'fa fa-smile-o'
+        });
+        // Finds all elements with `emojiable_selector` and converts them to rich emoji input fields
+        window.emojiPicker.discover();
+      });
+    </script>
+</body>
+</html>

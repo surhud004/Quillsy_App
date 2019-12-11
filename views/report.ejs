@@ -1,0 +1,13 @@
+<%- include("partials/header"); %>
+<div class="container">
+	<h1 class="text-center">Report a post/user</h1>
+	<form action="/report" method="POST">
+		<input class="form-control my-4" type="text" name="subject" placeholder="Subject" required>
+		<small class="form-text text-left">For example, Explicit post/Fake user</small>
+		<input class="form-control my-4" type="text" name="content" placeholder="Post URL or User URL" required>
+		<small class="form-text text-left">Post URL example - https://quillsy.herokuapp.com/posts/5ded9ffd29d90701d43e929a</small>
+		<small class="form-text text-left">User URL example - https://quillsy.herokuapp.com/user/johnDoe (Please check case-sensitivity)</small>
+		<button class="btn btn-lg btn-outline-primary">Submit</button>
+	</form>
+</div>
+<%- include("partials/footer"); %>

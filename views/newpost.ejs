@@ -1,0 +1,13 @@
+<%- include("partials/header"); %>
+<div class="container">
+	<h1 class="text-center">Create a new post</h1>
+	<form action="/posts" method="POST">
+		<input class="form-control my-4" type="text" name="title" placeholder="Title" required>
+		<input class="form-control my-4" type="text" name="imageurl" placeholder="Image URL (PNG/JPEG)" required>
+		<p class="lead emoji-picker-container">
+          <textarea type="text" name="blogtext" rows="10" data-emoji-input="unicode" class="form-control text-left my-4" placeholder="Start writing here" data-emojiable="true" required></textarea>
+        </p>
+		<button class="btn btn-lg btn-outline-primary">Submit</button>
+	</form>
+</div>
+<%- include("partials/footer"); %>

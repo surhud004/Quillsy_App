@@ -1,0 +1,69 @@
+body{
+	background-color: #171717;
+	color: white;
+	font-family: 'Nunito', sans-serif;
+}
+.navbar {
+	background-color: #2A3840;
+}
+.input-group-text {
+	background-color: transparent;
+	color: white;
+}
+.dropdown-menu {
+	background-color: #2A3840;
+}
+.dropdown-item {
+	color: white;
+}
+.img-logo {
+	width: 200px;
+  	height: auto;
+}
+.display-2, .display-3, .display-4 {
+	font-family: 'Lobster', cursive;
+}
+.container{
+	margin-top: 6rem;
+	margin-bottom: 6rem;
+	text-align: center;
+}
+.landing {
+	height: 30em;
+}
+.card {
+	background-color: #253239;
+	text-align: left;
+}
+.card-title {
+	color: #5AFC6D;
+	font-weight: 700;
+}
+.messages {
+	text-align: left;
+}
+.auth-form {
+	width: 50%;
+}
+.jumbotron {
+	background-color: #253239;
+}
+#postText{
+	/* This is displaying newlines from JSON in showpost - displaying paragraph with preformatted styles*/
+	white-space: pre-wrap;
+}
+#commentInput{
+	width: 80%;
+}
+#delBtn{
+	display: inline;
+}
+#sticky-footer {
+	position: relative;
+   	left: 0;
+   	bottom: 0;
+   	width: 100%;
+   	background-color: #2A3840;
+   	color: white;
+   	text-align: center;
+}

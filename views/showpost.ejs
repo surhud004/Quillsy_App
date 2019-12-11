@@ -1,0 +1,37 @@
+<%- include("partials/header"); %>
+<div class="container">
+	<div class="thumbnail border rounded text-center my-4">
+		<h1 class="display-3"><%= post.title %></h1>
+		<img class="img-fluid rounded" src="<%= post.image %>">
+		<p id="postText" class="lead p-4"><%= post.text %></p>
+		<p class="lead p-4"><em>Submitted By <a href="/user/<%= post.author.username %>"><%= post.author.username %></a>, <%= moment(post.created).fromNow() %></em></p>
+		<% if (currentUser && post.author.id.equals(currentUser._id)) { %>
+			<a class="btn btn-sm btn-outline-warning my-2" href="/posts/<%= post._id %>/edit">Edit</a>
+			<form id="delBtn" action="/posts/<%= post._id %>?_method=DELETE" method="POST">
+				<button class="btn btn-sm btn-outline-danger my-2">Delete</button>
+			</form>
+		<% } %>
+	</div>
+	<div class="thumbnail border rounded text-center my-4 py-4">
+		<% post.comments.forEach(function(comment){ %>
+			<div class="row">
+				<div class="col">
+					<p class="text-left pl-4"><strong><%= comment.author.username %></strong><br><%= comment.text %></p>
+				</div>
+				<div class="col text-right mr-5">
+					<p class="mb-0"><em><%= moment(comment.created).fromNow() %></em></p>
+					<% if (currentUser && (comment.author.id.equals(currentUser._id) || post.author.id.equals(currentUser._id))) { %>
+						<form id="delBtn" action="/posts/<%= post._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+							<button class="btn btn-sm btn-outline-danger text-left my-2">Delete</button>
+						</form>
+					<% } %>
+				</div>
+			</div>
+		<% }); %>
+		<form action="/posts/<%= post._id %>" method="POST">
+			<input id="commentInput" class="form-control d-inline align-middle" type="text" name="newcomment" placeholder="Add comment" required>
+			<button class="btn btn-outline-success">Add Comment</button>
+		</form>
+	</div>
+</div>
+<%- include("partials/footer"); %>

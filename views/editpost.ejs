@@ -1,0 +1,13 @@
+<%- include("partials/header"); %>
+<div class="container">
+	<h1 class="text-center">Edit <%= post.title %></h1>
+	<form action="/posts/<%= post._id %>?_method=PUT" method="POST">
+		<input class="form-control my-4" type="text" name="title" value="<%= post.title %>">
+		<input class="form-control my-4" type="text" name="imageurl" value="<%= post.image %>">
+		<p class="lead emoji-picker-container">
+          <textarea type="text" name="blogtext" rows="10" data-emoji-input="unicode" class="form-control my-4" data-emojiable="true"><%= post.text %></textarea>
+        </p>
+		<button class="btn btn-lg btn-outline-primary">Submit</button>
+	</form>
+</div>
+<%- include("partials/footer"); %>

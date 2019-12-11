@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Quillsy</title>
+	<!-- Logo -->
+	<link rel="icon" type="image/png" href="/assets/logo.png">
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Nunito:400,700&display=swap" rel="stylesheet">
+	<!-- Bootstrap CSS -->
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<!-- Emoji CSS -->
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="/lib/css/emoji.css">
+	<!-- CSS -->
+	<link rel="stylesheet" type="text/css" href="/styles.css">
+	<link rel="stylesheet" type="text/css" href="/animation.css">
+</head>
+<body>
+	<nav class="navbar fixed-top navbar-expand-md navbar-dark justify-content-end">
+		<a class="navbar-brand font-weight-bold" href="/">
+			<img id="brandLogo" src="/assets/logo.png" width="50" height="50" class="d-inline-block align-middle" alt="logo">
+			<span class="d-inline-block align-middle">Quillsy</span>
+		</a>
+		<form class="form-inline mx-auto" action="/user" method="POST">
+			<div class="input-group">
+			    <div class="input-group-prepend">
+			      <div class="input-group-text">@</div>
+			    </div>
+			    <input class="form-control" type="search" placeholder="UserName" aria-label="search" name="searchUser" autofocus>
+			    <div class="input-group-append">
+			    	<button class="btn btn-outline-light" type="submit">Q</button>
+			    </div>
+			</div>
+		</form>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#loginLinks" aria-controls="loginLinks" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse flex-grow-0" id="loginLinks">
+			<ul class="navbar-nav">
+				<% if (!currentUser) { %>
+					<li class="nav-item"><a href="/login" class="nav-link">Login</a></li>
+					<li class="nav-item"><a href="/register" class="nav-link">Sign Up</a></li>
+				<% } else { %>
+					<li class="nav-item dropdown">
+				        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				          Signed in as <%= currentUser.username %>
+				        </a>
+				        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+				        	<a class="dropdown-item" href="/posts">Home</a>
+				        	<a class="dropdown-item" href="/user/<%= currentUser.username %>">My Profile</a>
+				          	<a class="dropdown-item" href="/posts/new">Create Post</a>
+				          	<div class="dropdown-divider"></div>
+				          	<a class="dropdown-item" href="/report">Report Post/User</a>
+				          	<a class="dropdown-item text-danger" href="/delete">Delete Account</a>
+				          	<div class="dropdown-divider"></div>
+				          	<a class="dropdown-item" href="/logout">Logout</a>
+				        </div>
+				    </li>
+				<% } %>
+			</ul>
+		</div>
+	</nav>
+	<div class="container messages">
+		<% if (errorMsg && errorMsg.length > 0) { %>
+			<div class="alert alert-danger" role="alert">
+				<%= errorMsg %>
+			</div>
+		<% } else if (successMsg && successMsg.length > 0) { %>
+			<div class="alert alert-success" role="alert">
+				<%= successMsg %>
+			</div>
+		<% } %>
+	</div>
