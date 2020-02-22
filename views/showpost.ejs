@@ -16,7 +16,7 @@
 		<% post.comments.forEach(function(comment){ %>
 			<div class="row">
 				<div class="col">
-					<p class="text-left pl-4"><strong><%= comment.author.username %></strong><br><%= comment.text %></p>
+					<p class="text-left pl-4"><a style="color: white" href="/user/<%= comment.author.username %>"><strong><%= comment.author.username %></strong></a><br><%= comment.text %></p>
 				</div>
 				<div class="col text-right mr-5">
 					<p class="mb-0"><em><%= moment(comment.created).fromNow() %></em></p>
