@@ -20,7 +20,7 @@ var User = require("./models/user");
 
 // DATABASE CONNECT & EXPRESS CONFIG
 //mongoose.connect("mongodb://localhost/quillsdb", {"useNewUrlParser": true, "useUnifiedTopology": true, "useFindAndModify": false});
-mongoose.connect("mongodb+srv://surhud004:JPL%26r_%40%23%24@cluster0-pejjj.mongodb.net/quillsdb?retryWrites=true&w=majority", {"useNewUrlParser": true, "useUnifiedTopology": true, "useFindAndModify": false}, function(err){
+mongoose.connect("YOUR_MONGODB_ATLAS_API", {"useNewUrlParser": true, "useUnifiedTopology": true, "useFindAndModify": false}, function(err){
 	if(err){
 		console.log(err);
 	} else {
